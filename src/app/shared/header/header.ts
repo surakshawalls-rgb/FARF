@@ -17,6 +17,9 @@ export class Header {
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
+    if (!this.menuOpen) {
+      this.submenuOpen = {};
+    }
   }
 
   toggleSubmenu(key: string, event: Event) {
