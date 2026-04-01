@@ -1,0 +1,72 @@
+ 
+  
+.newsletter-section {
+  max-width: 600px;
+  margin: 2rem auto;
+/* Removed stray properties from root */
+  margin-bottom: 1.5rem;
+  color: #1a3a2b;
+  text-align: center;
+/* Removed extra closing brace */
+.newsletter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+/* Removed extra closing brace */
+.newsletter-item {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  background: #f7faf7;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.newsletter-year {
+  font-weight: 600;
+  color: #2b5d3f;
+  margin-right: 1.2rem;
+  min-width: 60px;
+}
+.newsletter-item a {
+  color: #1a7f5a;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+.newsletter-item a:hover {
+  color: #145c3d;
+}
+  background: #f7faf7;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+ 
+}
+
+.newsletter-year {
+  font-weight: 600;
+  color: #2b5d3f;
+  margin-right: 1.2rem;
+  min-width: 60px;
+}
+
+}
+.newsletter-item {
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .newsletter-section {
+    padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+  }
+}

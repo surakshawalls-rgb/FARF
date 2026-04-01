@@ -1,0 +1,109 @@
+/* ===== ONGOING EVENTS ===== */
+.ongoing-events-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.page-hero {
+  text-align: center;
+  padding: 2.5rem 1rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.page-hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #1a237e;
+  margin-bottom: 0.5rem;
+}
+.page-hero p {
+  color: #546e7a;
+  font-size: 1.1rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 2.5rem;
+}
+
+.event-card {
+  background: #fff;
+  border: 1.5px solid #e3eaf5;
+  border-radius: 16px;
+  padding: 1.6rem 1.3rem;
+  box-shadow: 0 2px 12px rgba(25,118,210,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+}
+.event-card:hover {
+  box-shadow: 0 6px 24px rgba(25,118,210,0.14);
+  border-color: #1976d2;
+  transform: translateY(-3px);
+}
+.event-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 0.2rem;
+}
+.event-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a237e;
+  margin: 0;
+}
+.event-card p {
+  font-size: 0.93rem;
+  color: #546e7a;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.events-cta {
+  text-align: center;
+  background: linear-gradient(135deg, #e3f0ff, #f0f7ff);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.events-cta p {
+  font-size: 1.1rem;
+  color: #2d3a4a;
+  margin: 0;
+  font-weight: 500;
+}
+.events-cta .btn-action,
+.events-cta .btn-donate {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.events-cta .btn-action {
+  background: #fff;
+  color: #1976d2;
+  border: 2px solid #1976d2;
+}
+.events-cta .btn-action:hover { background: #e3f0ff; }
+.events-cta .btn-donate {
+  background: #388e3c;
+  color: #fff;
+  border: 2px solid #388e3c;
+}
+.events-cta .btn-donate:hover { background: #2e7d32; }
+
+@media (max-width: 600px) {
+  .page-hero h1 { font-size: 1.7rem; }
+  .events-grid { grid-template-columns: 1fr; }
+  .ongoing-events-page { padding: 1rem 0.7rem 2rem; }
+  .events-cta { flex-direction: column; gap: 0.8rem; }
+}

@@ -1,0 +1,59 @@
+// Clean, valid SCSS structure
+.webinars-section {
+  max-width: 700px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 2rem 2.5rem 2.5rem 2.5rem;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+.webinars-section h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #1a3a2b;
+  text-align: center;
+}
+.webinar-thumbnails {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.webinar-thumbnails img {
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+.webinar-thumbnails a:hover img {
+  transform: scale(1.05);
+}
+.webinar-list {
+  font-size: 1.1rem;
+  color: #2b5d3f;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+.webinar-list li {
+  margin-bottom: 0;
+  background: #f7faf7;
+  border-radius: 8px;
+  padding: 1.2rem 1.2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.webinar-list li:hover {
+  background: #e6f7ee;
+}

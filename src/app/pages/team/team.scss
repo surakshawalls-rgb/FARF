@@ -1,0 +1,125 @@
+// Team Page Styles
+.team-page {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.team-title {
+	text-align: center;
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 2.5rem;
+	color: #1a3d5d;
+	letter-spacing: 1px;
+}
+
+.team-list {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.team-card {
+	display: flex;
+	align-items: flex-start;
+	background: #fff;
+	border-radius: 16px;
+	box-shadow: 0 2px 16px rgba(30, 60, 90, 0.08);
+	padding: 1.5rem 2rem;
+	gap: 2rem;
+	transition: box-shadow 0.2s;
+	border: 1px solid #e6e6e6;
+}
+
+.team-card:hover {
+	box-shadow: 0 4px 32px rgba(30, 60, 90, 0.16);
+}
+
+.team-img {
+	flex: 0 0 auto;
+	width: 110px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.team-img img {
+	width: 100px;
+	height: 100px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 3px solid #e0eafc;
+	background: #f7fafd;
+	box-shadow: 0 2px 8px rgba(30, 60, 90, 0.06);
+}
+
+.team-info {
+	flex: 1 1 0%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.team-info h2 {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin: 0 0 0.5rem 0;
+	color: #1a3d5d;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.team-role {
+	font-size: 1rem;
+	font-weight: 400;
+	color: #4b7fa5;
+	background: #eaf4fb;
+	border-radius: 8px;
+	padding: 0.1em 0.7em;
+	margin-left: 0.5em;
+}
+
+.team-info p {
+	font-size: 1rem;
+	color: #333;
+	margin: 0.2em 0 0.5em 0;
+	line-height: 1.6;
+}
+
+.team-info a {
+	color: #1a7fd7;
+	text-decoration: underline;
+	word-break: break-all;
+}
+
+@media (max-width: 700px) {
+	.team-page {
+		padding: 1.2rem 0.5rem;
+	}
+	.team-title {
+		font-size: 1.7rem;
+	}
+	.team-list {
+		gap: 1.2rem;
+	}
+	.team-card {
+		flex-direction: column;
+		align-items: center;
+		padding: 1.2rem 1rem;
+		gap: 1.2rem;
+		text-align: center;
+	}
+	.team-img {
+		width: 100px;
+	}
+	.team-img img {
+		width: 90px;
+		height: 90px;
+	}
+	.team-info h2 {
+		font-size: 1.1rem;
+		justify-content: center;
+	}
+}

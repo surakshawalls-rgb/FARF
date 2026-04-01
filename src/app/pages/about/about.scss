@@ -1,4 +1,5 @@
 
+
 .about-page {
 	max-width: 900px;
 	margin: 2.5rem auto;
@@ -7,6 +8,7 @@
 	border-radius: 18px;
 	box-shadow: 0 4px 32px rgba(0,0,0,0.09);
 	font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+	text-align: center;
 }
 
 .about-page h1 {
@@ -14,12 +16,14 @@
 	font-weight: 800;
 	color: #1a237e;
 	margin-bottom: 1.2rem;
+	text-align: center;
 }
 
 .about-intro {
 	font-size: 1.18rem;
 	color: #333;
 	margin-bottom: 2.2rem;
+	text-align: center;
 }
 
 .about-mvv {
@@ -27,6 +31,7 @@
 	flex-wrap: wrap;
 	gap: 2.5rem;
 	margin-bottom: 2.5rem;
+	justify-content: center;
 }
 
 .about-block {
@@ -36,17 +41,41 @@
 	border-radius: 12px;
 	padding: 1.3rem 1.5rem;
 	box-shadow: 0 2px 10px rgba(26,35,126,0.04);
+	margin: 0 auto;
+	text-align: center;
 }
 
 .about-block h2 {
 	font-size: 1.25rem;
 	color: #283593;
 	margin-bottom: 0.7rem;
+	text-align: center;
 }
 
 .about-block ul {
 	padding-left: 1.2rem;
-	margin: 0;
+	margin: 0 auto;
+	display: inline-block;
+	text-align: left;
+}
+
+@media (max-width: 700px) {
+	.about-page {
+		padding: 1.2rem 0.5rem;
+	}
+	.about-mvv {
+		flex-direction: column;
+		gap: 1.2rem;
+		align-items: center;
+	}
+	.about-block {
+		min-width: 0;
+		width: 100%;
+		padding: 1rem 0.7rem;
+	}
+	.about-page h1 {
+		font-size: 2rem;
+	}
 }
 
 .about-block li {
