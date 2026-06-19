@@ -55,7 +55,7 @@
 .main-footer .footer-links span {
   color: #3f5488;
 }
-/* Social icons — always horizontal row */
+/* Social icons ï¿½ always horizontal row */
 .main-footer .footer-social {
   display: flex;
   flex-direction: row;
@@ -85,6 +85,23 @@
   height: 18px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+}
+.main-footer .footer-credit {
+  font-size: 0.95rem;
+  color: #ffffff;
+  background: rgba(255,255,255,0.08);
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);
+}
+.main-footer .footer-credit a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 700;
 }
 .main-footer .footer-copy {
   font-size: 0.8rem;
