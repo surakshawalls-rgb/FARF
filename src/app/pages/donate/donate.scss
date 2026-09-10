@@ -1,73 +1,600 @@
-
-
 .donate-page {
-	max-width: 900px;
-	margin: 2.5rem auto;
-	padding: 2.5rem 2rem;
-	background: #fff;
-	border-radius: 18px;
-	box-shadow: 0 4px 32px rgba(0,0,0,0.09);
-	font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-	text-align: center;
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #263238;
 }
 
-.donate-page h1 {
-	font-size: 2.3rem;
-	font-weight: 800;
-	color: #1a237e;
-	margin-bottom: 1.2rem;
-	text-align: center;
+
+/* =================================
+   HERO
+================================= */
+
+.donate-hero {
+  position: relative;
+
+  min-height: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 24px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #102a56 0%,
+      #164b68 55%,
+      #176b5b 100%
+    );
+
+  text-align: center;
 }
 
-.donate-page h2 {
-	font-size: 1.25rem;
-	color: #1976d2;
-	margin-top: 2rem;
-	margin-bottom: 0.7rem;
-	text-align: center;
+.donate-hero::before,
+.donate-hero::after {
+  content: "";
+
+  position: absolute;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
 }
 
-.donate-page ul {
-	margin: 0.5rem auto 0 auto;
-	padding: 0;
-	display: inline-block;
-	text-align: left;
-}
-.donate-page li {
-	margin-bottom: 0.4rem;
-	color: #2d3a4a;
-	font-size: 1.08rem;
-}
-.donate-page p {
-	color: #2d3a4a;
-	margin-bottom: 0.5rem;
-	font-size: 1.08rem;
-}
-.donate-page a {
-	color: #1976d2;
-	text-decoration: underline;
+.donate-hero::before {
+  width: 440px;
+  height: 440px;
+
+  top: -220px;
+  right: -80px;
 }
 
-// Card-like sections
-.donate-intro, .donate-support, .donate-legal, .donate-policy, .donate-bank, .donate-contact {
-	background: #f5f7fa;
-	border-radius: 14px;
-	box-shadow: 0 2px 10px rgba(26,35,126,0.06);
-	padding: 1.5rem 1.2rem;
-	margin: 1.2rem auto;
-	max-width: 700px;
-	text-align: center;
+.donate-hero::after {
+  width: 300px;
+  height: 300px;
+
+  bottom: -180px;
+  left: -80px;
 }
+
+.donate-hero .hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 800px;
+}
+
+.hero-label {
+  display: inline-block;
+
+  margin-bottom: 16px;
+  padding: 7px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 30px;
+
+  color: #fff;
+
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.donate-hero h1 {
+  margin: 0 0 18px;
+
+  color: #fff !important;
+
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+}
+
+.donate-hero p {
+  margin: auto;
+
+  color: rgba(255, 255, 255, 0.87) !important;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+
+/* =================================
+   CONTENT
+================================= */
+
+.donate-content {
+  max-width: 1050px;
+
+  margin: auto;
+
+  padding: 75px 24px;
+}
+
+
+/* =================================
+   INTRO
+================================= */
+
+.donate-intro {
+  max-width: 850px;
+
+  margin: 0 auto 50px;
+
+  text-align: center;
+}
+
+.section-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #13705d;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.donate-intro h2 {
+  margin: 0 0 20px;
+
+  color: #102a56;
+
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.donate-intro p {
+  margin: 0 0 12px;
+
+  color: #596875;
+
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+
+/* =================================
+   COMMON SECTION
+================================= */
+
+.donate-support,
+.donate-bank,
+.donate-legal,
+.donate-policy {
+  margin-bottom: 35px;
+
+  padding: 35px;
+
+  background: #fff;
+
+  border: 1px solid #e3e9ef;
+  border-radius: 20px;
+
+  box-shadow: 0 8px 28px rgba(16, 42, 86, 0.05);
+}
+
+.section-heading {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+  margin-bottom: 30px;
+}
+
+.section-number {
+  flex-shrink: 0;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #e8f3f0;
+
+  color: #13705d;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  color: #102a56;
+
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+
+/* =================================
+   SUPPORT LIST
+================================= */
+
+.support-list {
+  display: grid;
+
+  gap: 14px;
+}
+
+.support-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 18px;
+
+  padding: 20px;
+
+  border: 1px solid #e8edf2;
+
+  border-radius: 14px;
+
+  background: #fafcfd;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.support-item:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(16, 42, 86, 0.07);
+}
+
+.support-icon {
+  flex-shrink: 0;
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #e8f3f0;
+
+  font-size: 1.25rem;
+}
+
+.support-item h3 {
+  margin: 0 0 6px;
+
+  color: #102a56;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.support-item p {
+  margin: 0;
+
+  color: #63717e;
+
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+
+/* =================================
+   MESSAGE
+================================= */
+
+.donate-message {
+  margin: 45px 0;
+
+  padding: 45px 35px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf5f2,
+      #edf4fb
+    );
+
+  text-align: center;
+}
+
+.message-label {
+  color: #13705d;
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.donate-message h2 {
+  max-width: 700px;
+
+  margin: 12px auto;
+
+  color: #102a56;
+
+  font-size: 1.8rem;
+  line-height: 1.4;
+}
+
+.donate-message p {
+  max-width: 650px;
+
+  margin: auto;
+
+  color: #5d6b78;
+
+  line-height: 1.7;
+}
+
+
+/* =================================
+   BANK DETAILS
+================================= */
+
+.bank-card {
+  overflow: hidden;
+
+  border: 1px solid #e1e7ec;
+
+  border-radius: 14px;
+}
+
+.bank-row {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 17px 20px;
+
+  border-bottom: 1px solid #e8edf1;
+}
+
+.bank-row:last-child {
+  border-bottom: none;
+}
+
+.bank-row span {
+  color: #687784;
+
+  font-size: 0.9rem;
+}
+
+.bank-row strong {
+  color: #102a56;
+
+  font-size: 0.92rem;
+
+  text-align: right;
+}
+
+
+/* =================================
+   LEGAL / POLICY
+================================= */
+
+.donate-legal p,
+.donate-policy p {
+  margin: 0 0 12px;
+
+  color: #596875;
+
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.registration-id {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+
+  padding: 15px 18px;
+
+  background: #f1f7f5;
+
+  border-radius: 12px;
+}
+
+.registration-id span {
+  color: #5d6c77;
+
+  font-size: 0.85rem;
+}
+
+.registration-id strong {
+  color: #13705d;
+
+  font-size: 0.9rem;
+}
+
+.verification-note {
+  margin-top: 18px;
+
+  padding: 14px 16px;
+
+  border-left: 3px solid #e1a43c;
+
+  background: #fff8e8;
+
+  color: #6c5a32;
+
+  font-size: 0.85rem;
+
+  line-height: 1.6;
+}
+
+
+/* =================================
+   CONTACT
+================================= */
+
+.donate-contact {
+  margin-top: 50px;
+
+  padding: 45px 25px;
+
+  text-align: center;
+}
+
+.donate-contact h2 {
+  margin: 5px 0 10px;
+
+  color: #102a56;
+
+  font-size: 1.8rem;
+}
+
+.donate-contact p {
+  margin: 0 0 20px;
+
+  color: #667481;
+}
+
+.contact-links {
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+}
+
+.contact-links a {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 12px 18px;
+
+  border-radius: 10px;
+
+  background: #102a56;
+
+  color: #fff;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.contact-links a:hover {
+  background: #176b5b;
+
+  transform: translateY(-2px);
+}
+
+
+/* =================================
+   MOBILE
+================================= */
 
 @media (max-width: 700px) {
-	.donate-page {
-		padding: 1.2rem 0.5rem;
-	}
-	.donate-page h1 {
-		font-size: 1.7rem;
-	}
-	.donate-intro, .donate-support, .donate-legal, .donate-policy, .donate-bank, .donate-contact {
-		padding: 1rem 0.7rem;
-		max-width: 100%;
-	}
+
+  .donate-hero {
+    min-height: 300px;
+
+    padding: 55px 20px;
+  }
+
+  .donate-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .donate-hero p {
+    font-size: 0.95rem;
+  }
+
+  .donate-content {
+    padding: 45px 15px;
+  }
+
+  .donate-support,
+  .donate-bank,
+  .donate-legal,
+  .donate-policy {
+    padding: 25px 18px;
+
+    border-radius: 16px;
+  }
+
+  .section-heading {
+    gap: 13px;
+  }
+
+  .section-number {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.25rem;
+  }
+
+  .support-item {
+    padding: 17px;
+  }
+
+  .support-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .bank-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  .bank-row strong {
+    text-align: left;
+
+    word-break: break-word;
+  }
+
+  .registration-id {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 6px;
+  }
+
+  .donate-message {
+    padding: 35px 20px;
+  }
+
+  .donate-message h2 {
+    font-size: 1.45rem;
+  }
+
 }

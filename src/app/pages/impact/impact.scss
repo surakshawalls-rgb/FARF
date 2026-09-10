@@ -1,85 +1,527 @@
-
 .impact-page {
-	max-width: 900px;
-	margin: 2.5rem auto;
-	padding: 2.5rem 2rem;
-	background: #fff;
-	border-radius: 18px;
-	box-shadow: 0 4px 32px rgba(0,0,0,0.09);
-	font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  min-height: 100vh;
+  background: #f6f8fb;
+  color: #263238;
+}
+
+
+/* =================================
+   HERO
+================================= */
+
+.impact-hero {
+  position: relative;
+
+  min-height: 350px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 70px 24px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #102a56 0%,
+      #164b68 55%,
+      #176b5b 100%
+    );
+
   text-align: center;
 }
 
-.impact-page h1 {
-	font-size: 2.5rem;
-	font-weight: 800;
-	color: #1a237e;
-	margin-bottom: 1.2rem;
+.impact-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 440px;
+  height: 440px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+
+  top: -220px;
+  right: -80px;
+}
+
+.impact-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+
+  bottom: -180px;
+  left: -80px;
+}
+
+.impact-hero .hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 850px;
+}
+
+.hero-label {
+  display: inline-block;
+
+  margin-bottom: 16px;
+  padding: 7px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  border-radius: 30px;
+
+  color: #fff;
+
+  font-size: 0.73rem;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.impact-hero h1 {
+  margin: 0 0 18px;
+
+  color: #fff !important;
+
+  font-size: clamp(2.3rem, 5vw, 3.8rem);
+
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+.impact-hero p {
+  max-width: 760px;
+
+  margin: auto;
+
+  color: rgba(255, 255, 255, 0.87) !important;
+
+  font-size: 1.05rem;
+
+  line-height: 1.75;
+}
+
+
+/* =================================
+   CONTENT
+================================= */
+
+.impact-content {
+  max-width: 1150px;
+
+  margin: auto;
+
+  padding: 80px 24px;
+}
+
+
+/* =================================
+   INTRO
+================================= */
+
+.section-intro {
+  max-width: 800px;
+
+  margin: 0 auto 50px;
+
   text-align: center;
 }
 
-.impact-intro {
-	font-size: 1.15rem;
-	color: #333;
-	margin-bottom: 2.2rem;
-  text-align: center;
+.section-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #13705d;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
 }
+
+.section-intro h2 {
+  margin: 0 0 14px;
+
+  color: #102a56;
+
+  font-size: 2.1rem;
+
+  font-weight: 800;
+}
+
+.section-intro p {
+  margin: 0;
+
+  color: #647281;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+}
+
+
+/* =================================
+   STATS GRID
+================================= */
 
 .impact-stats-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 2rem;
-	margin-bottom: 2.2rem;
-  justify-content: center;
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 24px;
+
+  margin-bottom: 65px;
 }
+
+
+/* =================================
+   STAT CARD
+================================= */
 
 .impact-stat-block {
-	flex: 1 1 220px;
-	min-width: 200px;
-	background: #f5f7fa;
-	border-radius: 12px;
-	padding: 1.3rem 1.5rem;
-	box-shadow: 0 2px 10px rgba(26,35,126,0.04);
-	margin-bottom: 1.5rem;
-	text-align: center;
-  max-width: 320px;
-  margin-left: auto;
-  margin-right: auto;
+  position: relative;
+
+  padding: 30px;
+
+  background: #fff;
+
+  border: 1px solid #e3e9ef;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 8px 28px rgba(16, 42, 86, 0.05);
+
+  text-align: left;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+.impact-stat-block:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 16px 40px rgba(16, 42, 86, 0.1);
+}
+
+
+/* Icon */
+
+.stat-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  border-radius: 16px;
+
+  background: #e8f3f0;
+
+  color: #13705d;
+
+  font-size: 1.4rem;
+}
+
+
+/* Number */
+
+.stat-number {
+  position: absolute;
+
+  top: 27px;
+  right: 28px;
+
+  color: #b7c1cb;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+
+/* Main number */
 
 .impact-stat-block h2 {
-	font-size: 1.35rem;
-	color: #283593;
-	margin-bottom: 0.7rem;
-	font-weight: 700;
+  margin: 0;
+
+  color: #102a56;
+
+  font-size: 2.2rem;
+
+  line-height: 1;
+
+  font-weight: 800;
 }
+
+
+/* Label */
+
+.impact-stat-block h3 {
+  margin: 9px 0 13px;
+
+  color: #13705d;
+
+  font-size: 1.05rem;
+
+  font-weight: 800;
+}
+
+.impact-stat-block p {
+  margin: 0;
+
+  color: #647281;
+
+  font-size: 0.91rem;
+
+  line-height: 1.7;
+}
+
+
+/* Featured card */
+
+.impact-stat-featured {
+  background:
+    linear-gradient(
+      135deg,
+      #102a56,
+      #176b5b
+    );
+
+  border: none;
+}
+
+.impact-stat-featured .stat-icon {
+  background: rgba(255, 255, 255, 0.12);
+
+  color: #fff;
+}
+
+.impact-stat-featured .stat-number {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.impact-stat-featured h2 {
+  color: #fff;
+}
+
+.impact-stat-featured h3 {
+  color: #7dd3c0;
+}
+
+.impact-stat-featured p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+
+/* =================================
+   TRANSPARENCY
+================================= */
 
 .impact-note {
-	background: #f5f7fa;
-	border-radius: 12px;
-	padding: 1.1rem 1.3rem;
-	box-shadow: 0 2px 10px rgba(26,35,126,0.04);
-	font-size: 1.05rem;
-	color: #444;
-	text-align: center;
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 22px;
+
+  margin-bottom: 45px;
+
+  padding: 35px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eaf5f2,
+      #edf4fb
+    );
 }
 
-@media (max-width: 700px) {
-  .impact-page {
-    padding: 1.2rem 0.5rem;
-  }
+.note-icon {
+  flex-shrink: 0;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background: #13705d;
+
+  color: #fff;
+
+  font-size: 1.2rem;
+
+  font-weight: 800;
+}
+
+.impact-note h2 {
+  margin: 0 0 10px;
+
+  color: #102a56;
+
+  font-size: 1.45rem;
+
+  font-weight: 800;
+}
+
+.impact-note p {
+  max-width: 800px;
+
+  margin: 0;
+
+  color: #5d6b78;
+
+  font-size: 0.95rem;
+
+  line-height: 1.75;
+}
+
+
+/* =================================
+   CLOSING
+================================= */
+
+.impact-closing {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding: 35px 20px;
+
+  text-align: center;
+}
+
+.impact-closing > span {
+  color: #13705d;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.impact-closing h2 {
+  margin: 12px 0;
+
+  color: #102a56;
+
+  font-size: 1.9rem;
+
+  font-weight: 800;
+}
+
+.impact-closing p {
+  margin: auto;
+
+  color: #657380;
+
+  line-height: 1.8;
+}
+
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media (max-width: 900px) {
+
   .impact-stats-list {
-    flex-direction: column;
-    gap: 1.2rem;
-    align-items: center;
+    grid-template-columns:
+      repeat(2, 1fr);
   }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .impact-hero {
+    min-height: 300px;
+
+    padding: 55px 20px;
+  }
+
+  .impact-hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .impact-hero p {
+    font-size: 0.95rem;
+  }
+
+  .impact-content {
+    padding: 50px 15px;
+  }
+
+  .section-intro {
+    margin-bottom: 35px;
+  }
+
+  .section-intro h2 {
+    font-size: 1.7rem;
+  }
+
+  .impact-stats-list {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+
+    margin-bottom: 45px;
+  }
+
   .impact-stat-block {
-    min-width: 0;
-    width: 100%;
-    padding: 1rem 0.7rem;
-    max-width: 100%;
+    padding: 25px;
   }
-  .impact-page h1 {
+
+  .impact-stat-block h2 {
     font-size: 2rem;
   }
+
+  .impact-note {
+    flex-direction: column;
+
+    padding: 28px 22px;
+  }
+
+  .impact-note h2 {
+    font-size: 1.3rem;
+  }
+
+  .impact-closing h2 {
+    font-size: 1.55rem;
+  }
+
 }
