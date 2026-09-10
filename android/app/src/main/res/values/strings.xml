@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">FARF</string>
+    <string name="title_activity_main">FARF</string>
+    <string name="package_name">com.example.farf</string>
+    <string name="custom_url_scheme">com.example.farf</string>
+</resources>
