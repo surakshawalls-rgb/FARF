@@ -1,0 +1,23 @@
+.volunteer-page { min-height: 65vh; color: #23332d; background: #f7f8f5; }
+.volunteer-hero { padding: 78px max(24px, calc((100% - 1120px) / 2)); background: #244b38; }
+.eyebrow, .section-label { color: #a4cba9; font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.volunteer-hero h1 { margin: 18px 0 15px; color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.08; }
+.volunteer-hero h1 span { color: #b6d6a9; }
+.volunteer-hero p { max-width: 700px; margin: 0; color: rgba(255,255,255,.82); line-height: 1.8; }
+.volunteer-content { width: min(1120px, calc(100% - 48px)); margin: 0 auto; padding: 65px 0 80px; }
+.volunteer-intro { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+.volunteer-content .section-label { color: #4a8062; }
+.volunteer-intro h2, .volunteer-contact h2 { margin: 10px 0 12px; color: #20382c; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(2rem, 4vw, 2.7rem); font-weight: 500; }
+.volunteer-intro p, .volunteer-contact p { color: #68756c; line-height: 1.75; }
+.volunteer-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.volunteer-options article { min-height: 210px; padding: 25px; border: 1px solid #e3e8e1; background: #fff; }
+.volunteer-options article > span { color: #568166; font-size: .7rem; font-weight: 800; }
+.volunteer-options h3 { margin: 15px 0 9px; color: #293e30; font-family: Georgia, 'Times New Roman', serif; font-size: 1.3rem; font-weight: 500; }
+.volunteer-options p { color: #68756c; font-size: .86rem; line-height: 1.7; }
+.volunteer-contact { display: flex; align-items: center; justify-content: space-between; gap: 25px; margin-top: 20px; padding: 25px; background: #edf2e9; }
+.volunteer-contact h2 { margin-top: 0; font-size: 1.7rem; }
+.volunteer-contact p { margin: 0; font-size: .86rem; }
+.contact-button { flex: 0 0 auto; display: inline-flex; align-items: center; min-height: 44px; padding: 0 15px; color: #fff; background: #2d6542; font-size: .82rem; font-weight: 700; }
+.contact-button:hover { color: #fff; background: #224e33; }
+@media (max-width: 760px) { .volunteer-options { grid-template-columns: 1fr; } .volunteer-contact { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 600px) { .volunteer-hero { padding: 55px 20px; } .volunteer-content { width: calc(100% - 34px); padding: 48px 0 60px; } .volunteer-options article { min-height: 0; } }

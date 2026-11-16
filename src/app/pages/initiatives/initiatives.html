@@ -1,0 +1,31 @@
+<main class="initiatives-page">
+  <section class="initiatives-hero">
+    <span class="eyebrow">HOW WE WORK</span>
+    <h1>{{ activeInitiative ? activeInitiative.title : 'Initiatives rooted in community' }}</h1>
+    <p *ngIf="activeInitiative">{{ activeInitiative.description }}</p>
+    <p *ngIf="!activeInitiative">FARF's work connects community engagement, rural research, education, digital facilitation and awareness.</p>
+  </section>
+
+  <section class="initiative-content">
+    <a *ngIf="activeInitiative" class="back-link" routerLink="/initiatives">← All initiatives</a>
+    <div class="initiative-grid" *ngIf="!activeInitiative">
+      <a *ngFor="let initiative of initiatives" [routerLink]="['/initiatives', initiative.slug]" class="initiative-card">
+        <span class="initiative-icon">{{ initiative.icon }}</span>
+        <span class="initiative-category">{{ initiative.category }}</span>
+        <h2>{{ initiative.title }}</h2>
+        <p>{{ initiative.description }}</p>
+        <span class="initiative-open">Learn more <b aria-hidden="true">→</b></span>
+      </a>
+    </div>
+    <article *ngIf="activeInitiative as initiative" class="initiative-detail">
+      <span class="initiative-icon">{{ initiative.icon }}</span>
+      <span class="initiative-category">{{ initiative.category }}</span>
+      <h2>{{ initiative.title }}</h2>
+      <p>{{ initiative.description }}</p>
+      <p>FARF's approach is to listen to local priorities and connect communities with information, services and opportunities. This overview is based on supplied organisational material.</p>
+      <div *ngIf="initiative.historical" class="historical-note"><strong>Historical initiative</strong><span>Confirm current programme status and activity details with FARF before treating this initiative as active.</span></div>
+      <a routerLink="/contact" class="contact-link">Contact FARF about this work →</a>
+    </article>
+    <p class="source-note">Programme descriptions are introductory; current activity status and service availability should be confirmed with FARF.</p>
+  </section>
+</main>

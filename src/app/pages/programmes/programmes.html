@@ -1,0 +1,85 @@
+<main class="programmes-page" *ngIf="!activeProgramme; else programmePortal">
+  <section class="listing-hero">
+    <span class="eyebrow">FARF CONNECT · OUR PROGRAMMES</span>
+    <h1>One shared mission.<br><span>Three ways to grow.</span></h1>
+    <p>Explore programmes connecting rural communities with services, livelihood opportunities and learning.</p>
+  </section>
+  <section class="listing-content">
+    <a *ngFor="let programme of programmes" class="listing-card" [ngClass]="programme.theme" [routerLink]="['/programmes', programme.slug]">
+      <span class="listing-icon">{{ programme.icon }}</span>
+      <span class="listing-focus">{{ programme.focus }}</span>
+      <h2>{{ programme.name }}</h2>
+      <p>{{ programme.tagline }}</p>
+      <span class="listing-description">{{ programme.description }}</span>
+      <b>Explore programme <span aria-hidden="true">→</span></b>
+    </a>
+  </section>
+  <p class="demo-disclaimer">Demonstration portal. Programme information is introductory; verify current services and eligibility details with FARF and relevant official sources.</p>
+</main>
+
+<ng-template #programmePortal>
+  <main class="programmes-page" *ngIf="activeProgramme as programme">
+    <section class="programme-hero" [ngClass]="programme.theme">
+      <div class="hero-inner">
+        <a routerLink="/programmes" class="back-link">← All programmes</a>
+        <span class="eyebrow">{{ programme.focus }} · FARF CONNECT</span>
+        <span class="hero-icon" aria-hidden="true">{{ programme.icon }}</span>
+        <h1>{{ programme.name }}</h1>
+        <h2>{{ programme.tagline }}</h2>
+        <p>{{ programme.description }}</p>
+        <span class="demo-badge">DEMONSTRATION PORTAL</span>
+      </div>
+    </section>
+    <section class="portal-content">
+      <div class="portal-heading">
+        <span class="eyebrow">EXPLORE THE PORTAL</span>
+        <h2>Information, tools and pathways.</h2>
+        <p>These sections show how the programme can help people find relevant information and opportunities. Demonstration content is illustrative.</p>
+      </div>
+      <div class="section-grid">
+        <article class="portal-card" *ngFor="let section of programme.sections">
+          <span class="section-icon" aria-hidden="true">{{ section.icon }}</span>
+          <h3>{{ section.title }}</h3>
+          <p>{{ section.description }}</p>
+          <ul>
+            <li *ngFor="let item of section.items">{{ item }}</li>
+          </ul>
+          <span class="demo-label">Sample information</span>
+        </article>
+      </div>
+      <section class="published-demo-content" *ngIf="publishedContent.length > 0">
+        <div class="portal-heading">
+          <span class="eyebrow">PUBLISHED FROM THE DEMO DASHBOARD</span>
+          <h2>Latest programme content</h2>
+        </div>
+        <article class="published-card" *ngFor="let item of publishedContent">
+          <img *ngIf="item.featuredImage" [src]="item.featuredImage" [alt]="item.title" loading="lazy">
+          <div>
+            <span class="demo-label">DEMONSTRATION CONTENT · {{ item.category }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+            <small *ngIf="item.publicationDate">Date: {{ item.publicationDate }}</small>
+            <dl *ngIf="item.kind === 'Scheme'" class="scheme-details">
+              <ng-container *ngIf="item.benefits"><dt>Benefits</dt><dd>{{ item.benefits }}</dd></ng-container>
+              <ng-container *ngIf="item.eligibility"><dt>Eligibility</dt><dd>{{ item.eligibility }}</dd></ng-container>
+              <ng-container *ngIf="item.requiredDocuments"><dt>Required documents</dt><dd>{{ item.requiredDocuments }}</dd></ng-container>
+              <ng-container *ngIf="item.applicationProcess"><dt>Application process</dt><dd>{{ item.applicationProcess }}</dd></ng-container>
+              <ng-container *ngIf="item.sourceReference"><dt>Source</dt><dd>{{ item.sourceReference }}</dd></ng-container>
+              <ng-container *ngIf="item.lastUpdated"><dt>Last checked</dt><dd>{{ item.lastUpdated }}</dd></ng-container>
+            </dl>
+            <a *ngIf="item.officialLink" class="official-link" [href]="item.officialLink" target="_blank" rel="noopener noreferrer">Visit official source ↗</a>
+          </div>
+        </article>
+      </section>
+      <p *ngIf="contentError" class="content-error" role="alert">{{ contentError }}</p>
+      <aside class="portal-notice">
+        <strong>Important</strong>
+        <p>This demonstration does not collect or store requests, student information or beneficiary data. Scheme requirements and service availability can change; consult official sources before applying.</p>
+      </aside>
+      <div class="portal-actions">
+        <a routerLink="/contact" class="portal-button">Contact FARF</a>
+        <a routerLink="/admin" class="portal-secondary">View demo dashboard →</a>
+      </div>
+    </section>
+  </main>
+</ng-template>

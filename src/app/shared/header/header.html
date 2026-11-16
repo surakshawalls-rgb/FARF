@@ -1,88 +1,78 @@
-﻿<header class="main-header">
-<div class="header-bar">
-<!-- Logo -->
-<a routerLink="/" class="logo-link">
-<img src="/downloads/logo.png" alt="FARF Logo" class="brand-logo" />
-<span class="brand-text">FARF</span>
-</a>
+<header class="main-header">
+  <div class="header-bar">
+    <a routerLink="/" class="logo-link" aria-label="FARF Connect home">
+      <img src="/downloads/logo.png" alt="" class="brand-logo">
+      <span class="brand-text">FARF <small>CONNECT</small></span>
+    </a>
 
-<!-- Desktop Nav -->
-<nav class="nav-links">
-<a routerLink="/">Home</a>
-<div class="dropdown">
-<a routerLink="/about">About Us <span class="caret">&#9660;</span></a>
-<div class="dropdown-content">
-<a routerLink="/vision">Vision</a>
-<a routerLink="/team">Team</a>
-<a routerLink="/recognition">Success Story &amp; Recognition</a>
-</div>
-</div>
-<div class="dropdown">
-<a routerLink="/work-areas">Our Work <span class="caret">&#9660;</span></a>
-<div class="dropdown-content">
-<a routerLink="/ongoing-events">Ongoing &amp; Future Events</a>
-<a routerLink="/completed">Completed</a>
-</div>
-</div>
-<a routerLink="/donate">Donate Now</a>
-<div class="dropdown">
-<span class="dropdown-trigger">Rural Research <span class="caret">&#9660;</span></span>
-<div class="dropdown-content">
-<a routerLink="/published-work">Published Work</a>
-<a routerLink="/documentaries">Documentaries</a>
-<a routerLink="/webinars">Webinars</a>
-<a routerLink="/newsletter">Newsletter</a>
-<a routerLink="/articles-blogs">Articles &amp; Blogs</a>
-</div>
-</div>
-<a routerLink="/impact">Rural Solutions</a>
-</nav>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a routerLink="/">Home</a>
+      <a routerLink="/about">About FARF</a>
+      <div class="dropdown">
+        <a routerLink="/programmes" class="dropdown-trigger">Our Programmes <span class="caret">⌄</span></a>
+        <div class="dropdown-content programme-menu">
+          <a routerLink="/programmes/gramin-seva"><span class="menu-mark gramin-mark">⌂</span><span><strong>Gramin Seva</strong><small>Rural Services</small></span></a>
+          <a routerLink="/programmes/sakhi-udyam"><span class="menu-mark sakhi-mark">✿</span><span><strong>Sakhi Udyam</strong><small>Women's Livelihood</small></span></a>
+          <a routerLink="/programmes/udaan"><span class="menu-mark udaan-mark">↗</span><span><strong>Udaan</strong><small>Life &amp; Cognitive Skills</small></span></a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a routerLink="/initiatives" class="dropdown-trigger">Our Initiatives <span class="caret">⌄</span></a>
+        <div class="dropdown-content">
+          <a routerLink="/initiatives/adarsh-gram">Adarsh Gram Yojana</a>
+          <a routerLink="/initiatives/kalrav">KALRAV</a>
+          <a routerLink="/initiatives/child-education">Child Education Support</a>
+          <a routerLink="/initiatives/digital-services">Digital Services</a>
+          <a routerLink="/initiatives/rural-research">Rural Research</a>
+          <a routerLink="/initiatives/agriculture">Agriculture Awareness</a>
+          <a routerLink="/initiatives/community">Community Development</a>
+        </div>
+      </div>
+      <a routerLink="/impact">Impact</a>
+      <a routerLink="/gallery">Gallery</a>
+      <a routerLink="/stories">Stories</a>
+      <a routerLink="/contact">Contact</a>
+      <a routerLink="/donate" class="nav-donate">Donate</a>
+      <a routerLink="/admin" class="nav-admin">Admin</a>
+    </nav>
 
-<!-- Hamburger toggle (top-right on mobile) -->
-<button class="hamburger" [class.is-open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle navigation">
-<span></span>
-<span></span>
-<span></span>
-</button>
-</div>
+    <button class="hamburger" [class.is-open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle navigation" [attr.aria-expanded]="menuOpen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 
-<!-- Mobile nav panel — uses *ngIf so no CSS display fighting -->
-<nav class="mobile-nav" *ngIf="menuOpen">
-<ul>
-<li><a routerLink="/" (click)="closeMenu()">Home</a></li>
-<li>
-<button class="mob-trigger" [class.active]="submenuOpen['about']" (click)="toggleSubmenu('about', $event)">
-About Us <span class="mob-caret" [class.open]="submenuOpen['about']">&#9660;</span>
-</button>
-<ul class="mob-submenu" *ngIf="submenuOpen['about']">
-<li><a routerLink="/vision" (click)="closeMenu()">Vision</a></li>
-<li><a routerLink="/team" (click)="closeMenu()">Team</a></li>
-<li><a routerLink="/recognition" (click)="closeMenu()">Success Story &amp; Recognition</a></li>
-</ul>
-</li>
-<li>
-<button class="mob-trigger" [class.active]="submenuOpen['work']" (click)="toggleSubmenu('work', $event)">
-Our Work <span class="mob-caret" [class.open]="submenuOpen['work']">&#9660;</span>
-</button>
-<ul class="mob-submenu" *ngIf="submenuOpen['work']">
-<li><a routerLink="/ongoing-events" (click)="closeMenu()">Ongoing &amp; Future Events</a></li>
-<li><a routerLink="/completed" (click)="closeMenu()">Completed</a></li>
-</ul>
-</li>
-<li><a routerLink="/donate" (click)="closeMenu()">Donate Now</a></li>
-<li>
-<button class="mob-trigger" [class.active]="submenuOpen['rural']" (click)="toggleSubmenu('rural', $event)">
-Rural Research <span class="mob-caret" [class.open]="submenuOpen['rural']">&#9660;</span>
-</button>
-<ul class="mob-submenu" *ngIf="submenuOpen['rural']">
-<li><a routerLink="/published-work" (click)="closeMenu()">Published Work</a></li>
-<li><a routerLink="/documentaries" (click)="closeMenu()">Documentaries</a></li>
-<li><a routerLink="/webinars" (click)="closeMenu()">Webinars</a></li>
-<li><a routerLink="/newsletter" (click)="closeMenu()">Newsletter</a></li>
-<li><a routerLink="/articles-blogs" (click)="closeMenu()">Articles &amp; Blogs</a></li>
-</ul>
-</li>
-<li><a routerLink="/impact" (click)="closeMenu()">Rural Solutions</a></li>
-</ul>
-</nav>
+  <nav class="mobile-nav" *ngIf="menuOpen" aria-label="Mobile navigation">
+    <ul>
+      <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/about" (click)="closeMenu()">About FARF</a></li>
+      <li>
+        <button class="mob-trigger" [class.active]="submenuOpen['programmes']" (click)="toggleSubmenu('programmes', $event)">
+          Our Programmes <span class="mob-caret" [class.open]="submenuOpen['programmes']">⌄</span>
+        </button>
+        <ul class="mob-submenu" *ngIf="submenuOpen['programmes']">
+          <li><a routerLink="/programmes/gramin-seva" (click)="closeMenu()">Gramin Seva — Rural Services</a></li>
+          <li><a routerLink="/programmes/sakhi-udyam" (click)="closeMenu()">Sakhi Udyam — Women's Livelihood</a></li>
+          <li><a routerLink="/programmes/udaan" (click)="closeMenu()">Udaan — Life &amp; Cognitive Skills</a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="mob-trigger" [class.active]="submenuOpen['initiatives']" (click)="toggleSubmenu('initiatives', $event)">
+          Our Initiatives <span class="mob-caret" [class.open]="submenuOpen['initiatives']">⌄</span>
+        </button>
+        <ul class="mob-submenu" *ngIf="submenuOpen['initiatives']">
+          <li><a routerLink="/initiatives" (click)="closeMenu()">All initiatives</a></li>
+          <li><a routerLink="/initiatives/adarsh-gram" (click)="closeMenu()">Adarsh Gram Yojana</a></li>
+          <li><a routerLink="/initiatives/kalrav" (click)="closeMenu()">KALRAV</a></li>
+          <li><a routerLink="/initiatives/rural-research" (click)="closeMenu()">Rural Research</a></li>
+          <li><a routerLink="/initiatives/digital-services" (click)="closeMenu()">Digital Services</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="/impact" (click)="closeMenu()">Impact</a></li>
+      <li><a routerLink="/gallery" (click)="closeMenu()">Gallery &amp; Activities</a></li>
+      <li><a routerLink="/stories" (click)="closeMenu()">Stories &amp; Recognition</a></li>
+      <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+      <li><a routerLink="/donate" (click)="closeMenu()" class="mobile-donate">Support FARF</a></li>
+      <li><a routerLink="/admin" (click)="closeMenu()">Admin Dashboard</a></li>
+    </ul>
+  </nav>
 </header>

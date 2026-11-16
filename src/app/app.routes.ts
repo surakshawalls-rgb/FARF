@@ -2,13 +2,20 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
+  { path: 'programmes', loadComponent: () => import('./pages/programmes/programmes').then(m => m.Programmes) },
+  { path: 'programmes/:program', loadComponent: () => import('./pages/programmes/programmes').then(m => m.Programmes) },
+  { path: 'initiatives', loadComponent: () => import('./pages/initiatives/initiatives').then(m => m.Initiatives) },
+  { path: 'initiatives/:initiative', loadComponent: () => import('./pages/initiatives/initiatives').then(m => m.Initiatives) },
+  { path: 'admin', loadComponent: () => import('./pages/admin/admin').then(m => m.Admin) },
+  { path: 'gallery', loadComponent: () => import('./pages/completed/completed').then(m => m.Completed) },
+  { path: 'stories', loadComponent: () => import('./pages/recognition/recognition').then(m => m.RecognitionComponent) },
   { path: 'recognition', loadComponent: () => import('./pages/recognition/recognition').then(m => m.RecognitionComponent) },
   { path: '', loadComponent: () => import('./pages/home/home').then(m => m.Home) },
   { path: 'about', loadComponent: () => import('./pages/about/about').then(m => m.About) },
   { path: 'work-areas', loadComponent: () => import('./pages/work-areas/work-areas').then(m => m.WorkAreas) },
   { path: 'app', loadComponent: () => import('./pages/app/app').then(m => m.App) },
   { path: 'impact', loadComponent: () => import('./pages/impact/impact').then(m => m.Impact) },
-  { path: 'blogs', loadComponent: () => import('./pages/blogs/blogs').then(m => m.Blogs) },
+  { path: 'blogs', redirectTo: 'articles-blogs' },
   { path: 'team', loadComponent: () => import('./pages/team/team').then(m => m.Team) },
   { path: 'volunteer', loadComponent: () => import('./pages/volunteer/volunteer').then(m => m.Volunteer) },
   { path: 'donate', loadComponent: () => import('./pages/donate/donate').then(m => m.Donate) },

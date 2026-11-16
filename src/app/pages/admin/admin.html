@@ -1,0 +1,168 @@
+<main class="admin-page">
+  <aside class="admin-sidebar">
+    <a routerLink="/" class="admin-brand"><span class="brand-mark">F</span><span>FARF <small>CONNECT</small></span></a>
+    <div class="demo-environment">DEMO ENVIRONMENT</div>
+    <nav aria-label="Dashboard navigation">
+      <button *ngFor="let item of navigation" type="button" [class.active]="selectedSection === item" (click)="selectSection(item)">
+        <span class="nav-dot" aria-hidden="true"></span>{{ item }}
+      </button>
+    </nav>
+    <a routerLink="/" class="back-to-site">← Back to website</a>
+  </aside>
+
+  <section class="admin-main">
+    <header class="admin-topbar">
+      <div>
+        <span class="demo-label">FARF CONNECT / DEMONSTRATION</span>
+        <h1>{{ selectedSection }}</h1>
+      </div>
+      <span class="demo-pill">Sample data only</span>
+    </header>
+
+    <div class="demo-warning">
+      <strong>Demonstration dashboard</strong>
+      <span>Records are illustrative and saved only in this browser. No real beneficiary, child, school or personal data is used. This demo is not connected to Supabase.</span>
+    </div>
+
+    <div *ngIf="errorMessage" class="notice notice-error" role="alert">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="notice notice-success" role="status">{{ successMessage }}</div>
+
+    <section *ngIf="selectedSection === 'Overview'" class="overview-section">
+      <div class="summary-grid">
+        <article class="summary-card" *ngFor="let card of summaryCards">
+          <span>{{ card.label }}</span>
+          <strong>{{ card.value }}</strong>
+          <small>{{ card.note }}</small>
+        </article>
+      </div>
+      <div class="overview-note">
+        <span class="overview-icon">i</span>
+        <div>
+          <h2>Manage demonstration content</h2>
+          <p>Use this open-access dashboard to try adding, editing, searching, filtering and exporting illustrative programme records. No authentication or access restrictions have been added in this prototype phase.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="records-panel" id="records">
+      <div class="records-heading">
+        <div>
+          <span class="panel-kicker">DEMO CONTENT WORKSPACE</span>
+          <h2>{{ selectedSection === 'Overview' ? 'Content & sample records' : selectedSection + ' records' }}</h2>
+        </div>
+        <button type="button" class="export-button" (click)="exportCsv()">Export CSV</button>
+      </div>
+
+      <div class="records-toolbar">
+        <label class="search-field">
+          <span class="sr-only">Search records</span>
+          <span aria-hidden="true">⌕</span>
+          <input type="search" [(ngModel)]="searchTerm" placeholder="Search title, programme or status">
+        </label>
+        <label>
+          <span class="sr-only">Filter record type</span>
+          <select [(ngModel)]="selectedKind">
+            <option value="All">All record types</option>
+            <option *ngFor="let kind of kinds" [value]="kind">{{ kind }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Title</th><th>Type</th><th>Programme</th><th>Category</th><th>Status</th><th>Updated</th><th><span class="sr-only">Actions</span></th></tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of filteredRecords">
+              <td class="record-title">{{ record.title }}</td>
+              <td>{{ record.kind }}</td>
+              <td>{{ record.programme }}</td>
+              <td>{{ record.category }}</td>
+              <td><span class="status-chip">{{ record.status }}</span></td>
+              <td>{{ record.updated }}</td>
+              <td class="row-actions">
+                <button type="button" (click)="editRecord(record)" [attr.aria-label]="'Edit ' + record.title">Edit</button>
+                <button type="button" (click)="deleteRecord(record)" [attr.aria-label]="'Delete ' + record.title">Delete</button>
+              </td>
+            </tr>
+            <tr *ngIf="filteredRecords.length === 0"><td colspan="7" class="empty-state">No matching demo records. Clear the search or add a new record.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <form class="record-form" (ngSubmit)="saveRecord()">
+        <div class="form-heading">
+          <div>
+            <span class="panel-kicker">{{ editingId === null ? 'ADD CONTENT' : 'EDIT CONTENT' }}</span>
+            <h3>{{ editingId === null ? 'Create a demo record' : 'Update demo record' }}</h3>
+          </div>
+          <button *ngIf="editingId !== null" type="button" class="cancel-button" (click)="cancelEdit()">Cancel edit</button>
+        </div>
+        <div class="form-grid">
+          <label class="field field-wide">Title
+            <input name="title" [(ngModel)]="draft.title" maxlength="120" required placeholder="e.g. Sample training opportunity">
+          </label>
+          <label class="field field-wide">Description
+            <textarea name="description" [(ngModel)]="draft.description" maxlength="600" rows="3" placeholder="Describe this illustrative content. Verify facts before publishing."></textarea>
+          </label>
+          <label class="field">Type
+            <select name="kind" [(ngModel)]="draft.kind">
+              <option *ngFor="let kind of kinds" [value]="kind">{{ kind }}</option>
+            </select>
+          </label>
+          <label class="field">Category
+            <input name="category" [(ngModel)]="draft.category" maxlength="80" placeholder="e.g. Digital literacy">
+          </label>
+          <label class="field">Programme
+            <select name="programme" [(ngModel)]="draft.programme">
+              <option>Gramin Seva</option><option>Sakhi Udyam</option><option>Udaan</option><option>Organisation</option>
+            </select>
+          </label>
+          <label class="field">Publication date
+            <input name="publicationDate" [(ngModel)]="draft.publicationDate" type="date">
+          </label>
+          <label class="field">Featured image URL
+            <input name="featuredImage" [(ngModel)]="draft.featuredImage" maxlength="500" type="url" placeholder="https://...">
+          </label>
+          <label class="field">Display order
+            <input name="displayOrder" [(ngModel)]="draft.displayOrder" type="number" min="0" step="1">
+          </label>
+          <label class="field">Status
+            <select name="status" [(ngModel)]="draft.status">
+              <option>Draft</option><option>Published</option><option>Historical</option><option>Demo only</option>
+            </select>
+          </label>
+        </div>
+        <div class="scheme-fields" *ngIf="draft.kind === 'Scheme'">
+          <div class="scheme-fields-heading">Scheme information <span>Only publish details checked against a current official source.</span></div>
+          <label class="field">Benefits
+            <textarea name="benefits" [(ngModel)]="draft.benefits" maxlength="500" rows="2"></textarea>
+          </label>
+          <label class="field">Eligibility criteria
+            <textarea name="eligibility" [(ngModel)]="draft.eligibility" maxlength="500" rows="2"></textarea>
+          </label>
+          <label class="field">Required documents
+            <textarea name="requiredDocuments" [(ngModel)]="draft.requiredDocuments" maxlength="500" rows="2"></textarea>
+          </label>
+          <label class="field">Application process
+            <textarea name="applicationProcess" [(ngModel)]="draft.applicationProcess" maxlength="500" rows="2"></textarea>
+          </label>
+          <label class="field">Official application URL
+            <input name="officialLink" [(ngModel)]="draft.officialLink" type="url" maxlength="500" placeholder="https://...">
+          </label>
+          <label class="field">Source / reference
+            <input name="sourceReference" [(ngModel)]="draft.sourceReference" maxlength="250" placeholder="Official department or source">
+          </label>
+          <label class="field">Information last checked
+            <input name="lastUpdated" [(ngModel)]="draft.lastUpdated" type="date">
+          </label>
+        </div>
+        <div class="form-actions">
+          <span>Demo content is stored locally in this browser only.</span>
+          <button type="submit" class="save-button">{{ editingId === null ? 'Add demo record' : 'Save changes' }}</button>
+        </div>
+      </form>
+    </section>
+  </section>
+</main>
